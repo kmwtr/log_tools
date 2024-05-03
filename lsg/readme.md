@@ -1,4 +1,4 @@
-# Log site generator
+# Log-site Generator
 
 ## Dependencies
 

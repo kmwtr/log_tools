@@ -1,5 +1,5 @@
 # log_tools
 
-## lsg | Log site generator
+## lsg | Log-site Generator
 
-## ssf | Screenshot formatter
+## ssf | Screenshot Formatter
