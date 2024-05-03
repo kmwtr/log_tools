@@ -1,4 +1,4 @@
-# Screenshot Formatter
+# Log site generator
 
 ## Dependencies
 
