@@ -79,7 +79,7 @@ class ImageEditor():
             'save_directory':   None,
         }
         # 圧縮率でユーザーが指定した値は別途保持しておく
-        self._jpeg_quarity_orig = 90
+        self._jpeg_quarity_orig = 80
         # Mozjpeg の有無フラグ
         self._jpeg_engine = True
         # Windows の場合のテンポラリフォルダ（OS別処理は未実装…）
