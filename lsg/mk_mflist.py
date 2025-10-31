@@ -32,6 +32,18 @@ def large_file_searcher(file_list: list, threshold_byte: int, dir_settings: dict
 
     return large_file_list
 
+def hash_image_searcher(file_list: list, dir_settings: dict) -> list:
+    log.debug('> def ' + sys._getframe().f_code.co_name)
+
+    hash_image_list = []
+    for i in range(len(file_list)):
+        tmp_obj = Image.open(dir_settings['src_img_dir'] + file_list[i])
+        tmp_reso = tmp_obj.width * tmp_obj.height
+        if tmp_reso <= 64:
+            hash_image_list.append(file_list[i])
+
+    return hash_image_list
+
 def processing_candidate_maker(large_file_list: list, thumbnail_media_list: list) -> list:
     log.debug('> def ' + sys._getframe().f_code.co_name)
 
@@ -86,6 +98,9 @@ def make_mediafile_list(dir_settings: dict) -> dict:
     log.debug('candidate_gif_list: \n' + str(candidate_gif_list))
     log.debug('candidate_mp4_list: \n' + str(candidate_mp4_list))
 
+    hash_image_list = hash_image_searcher(jpg_png_list, dir_settings)
+    log.debug('hash_image_list: \n' + str(hash_image_list))
+
     mediafile_lists_dict = {
         'source_media_list':    source_media_list, 
         'thumbnail_media_list': thumbnail_media_list, 
@@ -95,6 +110,7 @@ def make_mediafile_list(dir_settings: dict) -> dict:
         'candidate_img_list':   candidate_img_list, 
         'candidate_gif_list':   candidate_gif_list,
         'candidate_mp4_list':   candidate_mp4_list,
+        'hash_image_list':      hash_image_list,
         }
     
     #log.debug('mediafile_lists_dict: \n' + str(mediafile_lists_dict))
