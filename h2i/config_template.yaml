@@ -1,5 +1,25 @@
-Save Target DIR: C:\Users\xxx\log\img\25
-Project Name:
+Target Path: C:\Users\xxx\log\img\25
+
+Project List:
   - aaa
   - bbb
   - ccc
+
+Color Palette:
+  '0': '2e2e42'
+  '1': '663566'
+  '2': 'b04f61'
+  '3': 'f08f6e'
+  '4': 'f5cd89'
+  '5': 'a2d67a'
+  '6': '4bb871'
+  '7': '317178'
+  '8': '485278'
+  '9': '5468a8'
+  'a': '6298c4'
+  'b': '81b4b8'
+  'c': 'e3e3e3'
+  'd': 'bfc7c9'
+  'e': '959fa6'
+  'f': 'e092b9'
+# inspired by GrafxKid's "Sweetie 16 Palette" 
