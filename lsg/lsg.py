@@ -16,6 +16,8 @@ from mk_tmb import make_image_thumbnail, make_video_thumbnail
 def log_assets_processor():
     log.debug('-> log_assets_processor()')
 
+    # 色々ひでえ
+
     # 設定のロード
     settings = load_lsg_config()
 
@@ -26,8 +28,6 @@ def log_assets_processor():
     make_image_thumbnail(mediafile_lists_dict, settings)
     make_video_thumbnail('candidate_gif_list', mediafile_lists_dict, settings)
     make_video_thumbnail('candidate_mp4_list', mediafile_lists_dict, settings)
-    
-    # 以下うーんって感じだけどとりあえずこれで
 
     # サムネイルリストを再取得（make_image_thumbnail() で増えている可能性があるため）
     mediafile_lists_dict['thumbnail_media_list'] = os.listdir(settings['tmb_img_dir'])
@@ -71,18 +71,23 @@ def log_assets_processor():
             # ファイル名と拡張子を分離
             data_name = os.path.splitext(file_name)
             # リストを予約
-            tmp_data = [data_name, data_name, False] # [0]ファイル、[1]サムネイル、[2]フラグ
+            tmp_data = [data_name, data_name, False, ''] # [0]ファイル、[1]サムネイル、[2]フラグ、[3]クラスアトリビュート
             for tmb_name in tmb_database:
                 if tmb_name[0].lstrip('tmb_') == data_name[0]:
                     tmp_data[1] = tmb_name
                     tmp_data[2] = True
+            # カリカリにしたいやつ
+            for hash_img_name in mediafile_lists_dict['hash_image_list']: 
+                if file_name == hash_img_name:
+                    tmp_data[3] = 'pixelated'
             # 
             file_database.append(tmp_data)
+
 
     log.debug('file_database: \n' + str(file_database))
 
     # タグを成形 
-    template_str_image   = '<img src="{{ thumbnail_path }}">'
+    template_str_image   = '<img src="{{ thumbnail_path }}" class="{{ image_attribute }}">'
     template_str_video   = '<video src="{{ thumbnail_path }}" loop muted autoplay playsinline></video>'
     template_obj_image = Template(template_str_image)
     template_obj_video = Template(template_str_video)
@@ -108,7 +113,7 @@ def log_assets_processor():
         if data[1][1] == '.mp4':
             tag_str = template_obj_video.render(thumbnail_path = href_top + data[1][0] + data[1][1])
         else:
-            tag_str = template_obj_image.render(thumbnail_path = href_top + data[1][0] + data[1][1])
+            tag_str = template_obj_image.render(thumbnail_path = href_top + data[1][0] + data[1][1], image_attribute = data[3])
 
         tmp_list.append({'name': data[0][0], 'href': '../img/' + str(settings['year']) +'/' + data[0][0] + data[0][1], 'tag' : tag_str})
 
