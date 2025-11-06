@@ -130,7 +130,7 @@ class CTkApp(customtkinter.CTk):
         # 各フレームの準備
         #  --------- --------- --------- --------- --------- --------- ---------
         # 各設定の読み込み
-        self.my_settings = ssf_utils.load_ssf_config(os.getcwd(), 'ssf_config.yaml')
+        self.my_settings = ssf_utils.load_ssf_config(os.getcwd(), 'config.yaml')
         # 各設定を格納
         frames_data['format']['quarity'] =  self.my_settings['jpeg_quarity']
         frames_data['naming']['tag'] =      self.my_settings['tag']
@@ -201,7 +201,7 @@ class CTkApp(customtkinter.CTk):
 
     def reload_config(self):
         print('spark!')
-        self.my_settings = ssf_utils.load_ssf_config(os.getcwd(), 'ssf_config.yaml')
+        self.my_settings = ssf_utils.load_ssf_config(os.getcwd(), 'config.yaml')
         # どうなんやろ
         # 各設定を格納
         frames_data['format']['quarity'] =  self.my_settings['jpeg_quarity']

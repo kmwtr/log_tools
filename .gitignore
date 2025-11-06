@@ -3,6 +3,7 @@ __pycache__/
 tmp/
 
 # ファイル
+config.yaml
 
 # ショートカットファイル
 *.lnk

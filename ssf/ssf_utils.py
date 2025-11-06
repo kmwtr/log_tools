@@ -56,7 +56,7 @@ def calculate_window_position(virtual_window_size_x, virtual_window_size_y) -> l
 
 # ======== ========= ========= ========= ========= ========= ========= =========
 
-def load_ssf_config(ssf_root_dir: str, file_name='ssf_config.yaml') -> dict:
+def load_ssf_config(ssf_root_dir: str, file_name='config.yaml') -> dict:
     """SSFの設定yamlを読み込む。"""
     log.debug('> def ' + sys._getframe().f_code.co_name)
     
@@ -87,7 +87,7 @@ def load_ssf_config(ssf_root_dir: str, file_name='ssf_config.yaml') -> dict:
 
 # -------- --------- --------- --------- --------- --------- --------- ---------
 
-def save_ssf_config(config_dict: dict, ssf_root_dir: str, file_name='ssf_config.yaml'):
+def save_ssf_config(config_dict: dict, ssf_root_dir: str, file_name='config.yaml'):
     """SSFの設定yamlを保存する。"""
     log.debug('> def ' + sys._getframe().f_code.co_name)
 
@@ -116,6 +116,6 @@ if __name__ == '__main__':
     # カレントディレクトリをこのファイルのディレクトリに移動
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     
-    data = load_ssf_config(os.getcwd(), 'ssf_config.yaml')
+    data = load_ssf_config(os.getcwd(), 'config.yaml')
     save_ssf_config(data, os.getcwd())
     
