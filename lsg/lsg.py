@@ -73,13 +73,13 @@ def log_site_generator():
     tmpl = env.get_template('log_quarter_page_template.html')
     ren_s = tmpl.render(content_source) # このタイミングで置き換えが行われる。
     
-    log.debug('generated html string')
+    log.debug('html generated')
     #print(ren_s)
 
     # htmlファイルの読み込み
     target_file = open(lsg_settings['HTMLDir'] / (lsg_settings['Year'] + 'q' + str(lsg_settings['Quarter']) + '.html'),
                        'w', encoding='utf-8')
-    print(lsg_settings['HTMLDir'] / (lsg_settings['Year'] + 'q' + str(lsg_settings['Quarter'])))
+    print(lsg_settings['HTMLDir'] / (lsg_settings['Year'] + 'q' + str(lsg_settings['Quarter']) + '.html'))
     target_file.write(ren_s)
     target_file.close()
 
