@@ -57,7 +57,7 @@ def log_site_generator():
         # posix形式の相対パスにしとく
         tmb_path = '../' + tmb_path.relative_to(lsg_settings['BaseDir']).as_posix()
         # タグ全体を作成
-        if element_type == '.mp4':
+        if element_type == 'mp4':
             tag_str = template_obj_video.render(thumbnail_path = tmb_path)
         else:
             tag_str = template_obj_image.render(thumbnail_path = tmb_path, image_attribute = img_attribute)

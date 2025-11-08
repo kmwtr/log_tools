@@ -2,7 +2,7 @@
 
 ## lsg | Log-site Generator
 
-v.0.2.1
+v.0.2.2
 
 ### Dependencies
 
