@@ -2,17 +2,23 @@
 
 ## lsg | Log-site Generator
 
+v.0.2.0
+
 ### Dependencies
 
 #### Python modules
+
 ```bash
 pip install Jinja2 pyyaml pillow
 ```
 #### Jpeg Encoder
-https://github.com/mozilla/mozjpeg
+
+[MozJPEG](https://github.com/mozilla/mozjpeg)
 
 #### Video Encoder
+
 FFmpeg
+
 ```bash
 winget install --id=Gyan.FFmpeg -e
 ```

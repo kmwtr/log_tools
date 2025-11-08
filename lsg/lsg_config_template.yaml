@@ -1,10 +1,9 @@
 # log site generator settings
-# 注：末尾に'/'を入れないこと。
 
 Year: 25
 Quarter: 4
 
-Base DIR: C:/Users/xxx/log
-Source Image DIR: /img
-Thumbnail Image DIR: /tmb
-Target HTML DIR: /html
+Base Dir: C:\Users\xxx\log
+Image Dir Name: img
+Thumbnail Dir Name: tmb
+HTML Dir Name: html
