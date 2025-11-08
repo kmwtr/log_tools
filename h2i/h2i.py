@@ -50,7 +50,7 @@ def main():
     img.putpalette(rgb_pal)
     img.putdata(pixel_index_data)
     img.save(tgt_path / (today_string + '_' + hex_string[0:8] + '.png'))
-    print('Image saved at: ' + str(tgt_path / (today_string + '_' + first_chunk + '.png')))
+    print('Image saved at: ' + str(tgt_path / (today_string + '_' + hex_string[0:8] + '.png')))
 
 # ------------------------------------------------------------------------------=-------------------
 
