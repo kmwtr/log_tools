@@ -71,10 +71,10 @@ def make_media_database(lsg_settings: dict) -> list:
                     pixel_art = is_pixel_art(item)
                 elif item.suffix.lower() in {'.gif'}:
                     file_type = 'gif'
-                    item_size = is_large_file(item, 512000, 43200) # 240 * 180 を超える場合
+                    item_size = is_large_file(item, 512000, 76800) # 320 * 240 を超える場合
                     pixel_art = is_pixel_art(item)
                 elif item.suffix.lower() in {'.mp4'}:
-                    file_type = 'mp4'
+                    file_type = 'video'
                     item_size = is_large_file(item, 512000)
                     pixel_art = False
                 # サムネイルの有無を確認
@@ -95,12 +95,12 @@ def make_media_database(lsg_settings: dict) -> list:
                     if expected_tmb_path.exists():
                         tmb_exists = True                    
                 media_database.append({'Path': item, 'Type': file_type, 'Large': item_size, 'Pixelated': pixel_art, 
-                                    'Thumbnail': tmb_exists, 'TmbType': expected_suffix})
+                                    'Thumbnail': tmb_exists, 'TmbSuffix': expected_suffix})
     log.debug('media_database:')
     for item in media_database:
         print(item['Path'])
         print('  Type: ' + item['Type'] + ', Large: ' + str(item['Large']) + ', Pixelated: ' + str(item['Pixelated']) + 
-              ', Thumbnail: ' + str(item['Thumbnail']) + ', TmbType: ' + str(item['TmbType']))
+              ', Thumbnail: ' + str(item['Thumbnail']) + ', TmbSuffix: ' + str(item['TmbSuffix']))
     
     #サムネイルディレクトリが無い場合は作る
     lsg_settings['ThumbnailDir'].mkdir(parents=True, exist_ok=True)

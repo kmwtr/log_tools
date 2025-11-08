@@ -16,9 +16,9 @@ def make_media_thumbnail(media_database, lsg_settings):
         # サムネイルを作らないといけないもの
         if (item['Large'] == True) and (item['Thumbnail'] == False):
             print(item)
-            if item['TmbType'] == 'img':
+            if item['Type'] == 'img':
                 make_image_thumbnail(item, lsg_settings)
-            if item['TmbType'] == 'mp4':
+            if (item['Type'] == 'video') or (item['Type'] == 'gif'):
                 make_video_thumbnail(item, lsg_settings)
     return
 

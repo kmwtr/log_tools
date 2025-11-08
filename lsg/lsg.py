@@ -48,16 +48,16 @@ def log_site_generator():
         tag_str = ''
         tmb_path = item['Path']
         img_attribute = ''
-        element_type = item['Type']
+        suffix_type = item['Path'].suffix
         if item['Thumbnail'] == True:
-            element_type = item['TmbType']
-            tmb_path = lsg_settings['ThumbnailDir'] / ('tmb_' + item['Path'].stem + element_type)
+            suffix_type = item['TmbSuffix']
+            tmb_path = lsg_settings['ThumbnailDir'] / ('tmb_' + item['Path'].stem + suffix_type)
         if item['Pixelated'] == True:
             img_attribute = 'pixelated'
         # posix形式の相対パスにしとく
         tmb_path = '../' + tmb_path.relative_to(lsg_settings['BaseDir']).as_posix()
         # タグ全体を作成
-        if element_type == 'mp4':
+        if suffix_type == '.mp4':
             tag_str = template_obj_video.render(thumbnail_path = tmb_path)
         else:
             tag_str = template_obj_image.render(thumbnail_path = tmb_path, image_attribute = img_attribute)
